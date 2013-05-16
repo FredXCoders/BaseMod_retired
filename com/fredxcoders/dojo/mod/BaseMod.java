@@ -17,7 +17,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class BaseMod {
 
-	@Instance("dojo_OfficeMod")
+	@Instance("dojo_BaseMod")
 	public static BaseMod instance;
 
 	@Init
