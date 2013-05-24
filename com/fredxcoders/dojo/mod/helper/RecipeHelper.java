@@ -32,8 +32,16 @@ public class RecipeHelper {
 		String row2 = ((input[1][0] != null) ? "d" : " ") + ((input[1][1] != null) ? "e" : " ") + ((input[1][2] != null) ? "f" : " ");
 		String row3 = ((input[2][0] != null) ? "g" : " ") + ((input[2][1] != null) ? "h" : " ") + ((input[2][2] != null) ? "i" : " ");
 		
-		Object[] recipe = new Object[2 + 18 - (2 * nullCount)];
+		System.out.println("Null size: " + nullCount);
+		int recipeSize = 3 + (2 * (9 - nullCount));
+		
+		System.out.println("Recipe size: " + recipeSize);
+		Object[] recipe = new Object[recipeSize];
 		char[] letters = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'};
+		
+		System.out.println("row1: " + row1);
+		System.out.println("row2: " + row2);
+		System.out.println("row3: " + row3);
 		
 		//Does this: new Object[] { "DDD", "DDD", "DDD",
 		recipe[0] = row1;
@@ -41,12 +49,16 @@ public class RecipeHelper {
 		recipe[2] = row3;
 		
 		int letterCount = 0;
+		int itemCount = 0;
 		for(int x=0; x<3; x++){
 			for(int y=0; y<3; y++){
-				if(input[x][y] == null){
+				if(input[x][y] != null){
+					int loc = 2*(itemCount+1)+3;	
+					System.out.println("Found an item for location: " + loc);
 					//does this: 'D', Block.dirt})
-					recipe[2*letterCount +3] = letters[letterCount];
-					recipe[2*letterCount+4] = input[x][y];
+					recipe[(2*itemCount)+3] = letters[letterCount];
+					recipe[(2*itemCount)+4] = input[x][y];
+					itemCount++;
 				}
 				letterCount++;
 			}
