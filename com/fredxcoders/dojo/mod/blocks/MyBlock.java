@@ -1,5 +1,7 @@
 package com.fredxcoders.dojo.mod.blocks;
 
+import com.fredxcoders.dojo.mod.BaseMod;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -13,7 +15,7 @@ public class MyBlock extends Block {
 
     @Override
     public void registerIcons(IconRegister iconRegister) {
-        this.blockIcon = iconRegister.registerIcon("BaseMod:test");
+        this.blockIcon = iconRegister.registerIcon(BaseMod.MODID+":test");
     }
 	
 }

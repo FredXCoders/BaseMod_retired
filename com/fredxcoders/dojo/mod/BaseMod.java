@@ -11,18 +11,20 @@ import com.fredxcoders.dojo.mod.blocks.MyBlock;
 import com.fredxcoders.dojo.mod.helper.RecipeHelper;
 
 import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.Init;
+import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
-@Mod(modid="dojo_BaseMod", name="Base Mod", version="0.1")
+@Mod(modid="dojo_basemod", name="Base Mod", version="0.1")
 @NetworkMod(clientSideRequired=true,serverSideRequired=true)
 public class BaseMod {
+	
+	public static final String MODID = "dojo_basemod";
 
-	@Instance("dojo_BaseMod")
+	@Instance(MODID)
 	public static BaseMod instance;
 	
 	public final static Block myBlock = new MyBlock(500, Material.ground)
@@ -31,7 +33,7 @@ public class BaseMod {
 			    .setLightValue(0.0F)
 			    .setLightOpacity(0);
 
-	@Init
+	@EventHandler
 	public void load(FMLInitializationEvent event){
 		
 		LanguageRegistry.addName(myBlock, "My Block");
@@ -40,7 +42,7 @@ public class BaseMod {
 		
 		ItemStack[][] recipe = RecipeHelper.getBlankRecipe();
 		recipe[0][0] = new ItemStack(Block.dirt);
-		RecipeHelper.addRecipe(new ItemStack(myBlock), recipe);	//dirt makes dirt!
+		RecipeHelper.addRecipe(new ItemStack(myBlock), recipe);	//dirt makes myBlock!
 		
 //		proxy.registerRenderers();	
 	}
