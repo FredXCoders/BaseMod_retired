@@ -42,7 +42,7 @@ public class BaseMod {
 		
 		ItemStack[][] recipe = RecipeHelper.getBlankRecipe();
 		recipe[0][0] = new ItemStack(Block.dirt);
-		RecipeHelper.addRecipe(new ItemStack(myBlock), recipe);	//dirt makes myBlock!
+		RecipeHelper.addRecipe(new ItemStack(myBlock,10), recipe);	//dirt makes myBlock!
 		
 //		proxy.registerRenderers();	
 	}
