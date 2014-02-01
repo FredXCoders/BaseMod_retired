@@ -9,6 +9,7 @@ import net.minecraftforge.common.MinecraftForge;
 
 import com.fredxcoders.dojo.mod.blocks.MyBlock;
 import com.fredxcoders.dojo.mod.helper.RecipeHelper;
+import com.fredxcoders.dojo.mod.managers.EventManager;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -23,27 +24,31 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 public class BaseMod {
 	
 	public static final String MODID = "dojo_basemod";
+	
+	EventManager eventManager = new EventManager();
 
 	@Instance(MODID)
 	public static BaseMod instance;
 	
-	public final static Block myBlock = new MyBlock(500, Material.ground)
+	public final static Block MY_BLOCK = new MyBlock(500, Material.ground)
 				.setHardness(0.5F).setStepSound(Block.soundMetalFootstep)
 			    .setUnlocalizedName("myBlock").setCreativeTab(CreativeTabs.tabBlock)
-			    .setLightValue(0.0F)
+			    .setLightValue(0.7F)
 			    .setLightOpacity(0);
 
 	@EventHandler
 	public void load(FMLInitializationEvent event){
 		
-		LanguageRegistry.addName(myBlock, "My Block");
-        MinecraftForge.setBlockHarvestLevel(myBlock, "shovel", 0);
-        GameRegistry.registerBlock(myBlock, "myBlock");
+		LanguageRegistry.addName(MY_BLOCK, "My Block");
+        MinecraftForge.setBlockHarvestLevel(MY_BLOCK, "shovel", 0);
+        GameRegistry.registerBlock(MY_BLOCK, "myBlock");
 		
 		ItemStack[][] recipe = RecipeHelper.getBlankRecipe();
 		recipe[0][0] = new ItemStack(Block.dirt);
-		RecipeHelper.addRecipe(new ItemStack(myBlock,10), recipe);	//dirt makes myBlock!
+		RecipeHelper.addRecipe(new ItemStack(MY_BLOCK,10), recipe);	//dirt makes myBlock!
 		
 //		proxy.registerRenderers();	
+		
+		GameRegistry.registerWorldGenerator(eventManager);
 	}
 }
