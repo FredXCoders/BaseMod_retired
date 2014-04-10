@@ -28,7 +28,7 @@ public class RecipeHelper {
 			}
 		}
 		
-		String row1 = ((input[0][0] != null) ? "a" : " ") + ((input[0][1] != null) ? "a" : " ") + ((input[0][2] != null) ? "c" : " ");
+		String row1 = ((input[0][0] != null) ? "a" : " ") + ((input[0][1] != null) ? "b" : " ") + ((input[0][2] != null) ? "c" : " ");
 		String row2 = ((input[1][0] != null) ? "d" : " ") + ((input[1][1] != null) ? "e" : " ") + ((input[1][2] != null) ? "f" : " ");
 		String row3 = ((input[2][0] != null) ? "g" : " ") + ((input[2][1] != null) ? "h" : " ") + ((input[2][2] != null) ? "i" : " ");
 		
