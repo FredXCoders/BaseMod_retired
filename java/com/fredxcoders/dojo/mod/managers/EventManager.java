@@ -26,8 +26,8 @@ public class EventManager implements IWorldGenerator{
 	private void generateOverworld(World world, Random random, int x, int z) {
 		int maxX = 16; //minX is one, so setting this to 16 says all of the x ranges can be used 
 		int maxZ = 16; //minY is one, so setting this to 16 says all of the y ranges can be used
-		int maxVeinSize = 4 + random.nextInt(5); 	//this means each patch of our blocks will be between 4 and 8 large 
-		int chancesToSpawn = 10;	//How many times our ore can spawn in one chunk 
+		int maxVeinSize = 2 + random.nextInt(5); 	//this means each patch of our blocks will be between 4 and 8 large 
+		int chancesToSpawn = 2;	//How many times our ore can spawn in one chunk 
 		int minY = 15; //how low the ore can spawn
 		int maxY = 160;	//how high the ore can spawn
 		this.addOreSpawn(BaseMod.MY_BLOCK, world, random, x, z, maxX, maxZ, maxVeinSize, chancesToSpawn, minY, maxY);
